@@ -1,4 +1,5 @@
 from flask import Flask, render_template, send_from_directory
+from scraper import get_scholar_publications
 
 app = Flask(__name__)
 
@@ -346,6 +347,9 @@ def protected_files(filename):
 # Publications
 @app.route('/publications')
 def publications():
+
+    author_name = "Ranjeet Kumar Rout"  # You can change it or use Google Scholar ID later
+    scholar_pubs = get_scholar_publications(author_name)
     journal_pubs = {
         "2024": [
             {
