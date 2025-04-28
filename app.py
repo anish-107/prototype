@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 # Home Page
 @app.route('/')
+@app.route('/')
 def home():
     """
     This route handles the home page ('/') of the web application.
@@ -12,7 +13,9 @@ def home():
     variable 'active_page' to mark the home link as active in the navbar.
     """
     return render_template("index.html", active_page='home')
-
+@app.route('/appointment_form')
+def appointment():
+    return render_template('appointment_form.html')
 # Projects
 @app.route('/projects')
 def projects():
