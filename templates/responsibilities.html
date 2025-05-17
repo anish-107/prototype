@@ -20,15 +20,23 @@
 </head>
 <body>
 
-    <!-- Header section with navigation -->
+    <!-- Header with logo and navigation menu -->
     <header class="site-header">
         <div class="overlay"></div>
         <div class="nav-container">
+            <!-- Logo linking to About Me -->
             <div class="logo"><a class="logo-link" href="{{ url_for('about_me') }}">Dr. Ranjeet Kumar Rout</a></div>
+            
+            <!-- Hamburger menu for small screens -->
             <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- Navigation bar -->
             <nav class="navbar" id="navbar">
                 <ul>
+                    <!-- Navigation links with active state highlighting -->
                     <li><a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a></li>
+                    
+                    <!-- Dropdown for Research section -->
                     <li class="dropdown {% if active_page in ['projects', 'publications', 'books'] %}active{% endif %}">
                         <a href="javascript:void(0)">Research</a>
                         <div class="dropdown-content">
@@ -36,85 +44,80 @@
                             <a href="{{ url_for('publications') }}" class="{{ 'active' if active_page == 'publications' else '' }}">Publications</a>
                             <a href="{{ url_for('books') }}" class="{{ 'active' if active_page == 'books' else '' }}">Books</a>
                         </div>
-                    </li>                    
+                    </li>
+                    
+                    <!-- Other single navigation links -->
                     <li><a href="{{ url_for('news') }}" class="{{ 'active' if active_page == 'news' else '' }}">News</a></li> 
                     <li><a href="{{ url_for('responsibilities') }}" class="{{ 'active' if active_page == 'responsibilities' else '' }}">Responsibilities</a></li>
-                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
-                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'My Blogs', 'Talks Delivered'] %}active{% endif %}">
-                        <a href="javascript:void(0)">Outreach</a>
+
+                     <!-- Dropdown for Outreach section -->
+                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'Gallery', 'Talks Delivered'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Events</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('seminar_workshop') }}" class="{{ 'active' if active_page == 'seminar_workshop' else '' }}">Seminars & Workshops</a>
-                            <a href="{{ url_for('my_blogs') }}" class="{{ 'active' if active_page == 'my_blogs' else '' }}">My Blogs</a>
+                            <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' else '' }}">Gallery</a>
                             <a href="{{ url_for('talks_delivered') }}" class="{{ 'active' if active_page == 'talks_delivered' else '' }}">Talks Delivered</a>
                         </div>
                     </li>
+
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
                     <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a></li>
+
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main content for responsibilities section -->
+   <!-- Main content for responsibilities section -->
     <main>
         <!-- Section for listing institutional and departmental responsibilities -->
         <section class="responsibilities-section">
             <div class="container">
+                <div class="search-container">
+                    <input type="text" id="responsibilitySearch" placeholder="Search responsibilities...">
+                </div>
+                
                 <h2 class="section-title">Institutional and Departmental Responsibilities</h2>
-
-                <!-- Leadership roles category -->
-                <div class="category">
-                    <h3 class="category-title">Leadership Roles</h3>
-                    <ul class="responsibilities-list">
-                        <li><span class="role">Associate Dean of Academic</span> <span class="date">October 2023</span></li>
-                        <li><span class="role">Warden</span> <span class="date">December 2020</span></li>
-                        <li><span class="role">Convener DUGC</span> <span class="date">March 2022</span></li>
-                    </ul>
-                </div>
-
-                <!-- Academic and program coordination category -->
-                <div class="category">
-                    <h3 class="category-title">Academic & Program Coordination</h3>
-                    <ul class="responsibilities-list">
-                        <li><span class="role">Nodal Officer Scholarship</span> <span class="date">October 2023</span></li>
-                        <li><span class="role">Program Coordinator, Center of Excellence AI and Agriculture (CEAIA)</span> <span class="date">December 2023</span></li>
-                        <li><span class="role">Adjunct Faculty, Center of Excellence Energy Research (CEER)</span> <span class="date">2023</span></li>
-                        <li><span class="role">EK BHARAT SHRESTHA BHARAT (EBSB) Nodal Officer</span> <span class="date">February 2022</span></li>
-                        <li><span class="role">Semester Coordinator</span> <span class="date">January 2019</span></li>
-                        <li><span class="role">Departmental NBA Coordinator</span> <span class="date">July 2020</span></li>
-                    </ul>
-                </div>
-
-                <!-- Committee memberships category -->
-                <div class="category">
-                    <h3 class="category-title">Committee Memberships</h3>
-                    <ul class="responsibilities-list">
-                        <li><span class="role">Plagiarism S/W Committee Member</span> <span class="date">June 2019</span></li>
-                        <li><span class="role">Wi-Fi Monitoring Committee Member</span> <span class="date">June 2019</span></li>
-                    </ul>
-                </div>
-
-                <!-- Administrative duties category -->
-                <div class="category">
-                    <h3 class="category-title">Administrative Duties</h3>
-                    <ul class="responsibilities-list">
-                        <li><span class="role">Upgradation of Teaching and Learning Process of the Institute</span> <span class="date">June 2019</span></li>
-                        <li><span class="role">Website Coordinator</span> <span class="date">November 2019</span></li>
-                    </ul>
+                
+                <div id="responsibilitiesContainer">
+                    {% for category in responsibilities %}
+                    <div class="category">
+                        <h3 class="category-title">{{ category.category }}</h3>
+                        <ul class="responsibilities-list">
+                            {% for item in category['items'] %}
+                            <li class="responsibility-item" 
+                                data-role="{{ item.role | lower }}" 
+                                data-institute="{{ item.institute | lower }}"
+                                data-from="{{ item.from | lower }}"
+                                data-to="{{ item.to | lower }}">
+                                <div class="role-details">
+                                    <span class="role">{{ item.role }}</span>
+                                    <span class="institute">{{ item.institute }}</span>
+                                </div>
+                                <div class="date-range">
+                                    <span class="from">{{ item.from }}</span>
+                                    <span class="to">{{ item.to }}</span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
-        </section>          
+        </section>
     </main>
 
-    <!-- Footer section with social media links -->
+    <!-- ================= Footer Section ================= -->
     <footer>
         <div class="social-icons">
-            <!-- Social media links (LinkedIn, GitHub, Twitter, Email) -->
+            <!-- Update these links with real profile URLs -->
             <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
         </div>
-        <!-- Footer text with copyright information -->
         <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
     </footer>
 

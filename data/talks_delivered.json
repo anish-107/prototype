@@ -1,0 +1,74 @@
+{
+    "2023": [
+        {
+            "title": "Fine-grained Image Analysis for Affective Computing using Deep CNNs in IoT Environment",
+            "event": "CIoT-2023, 8th June",
+            "location": "Bennett University, Greater Noida"
+        },
+        {
+            "title": "Fine-grained Image Analysis for Emotion Recognition using Deep CNNs with Bilinear Pooling",
+            "event": "AITHA-2023, 24th Feb",
+            "location": "NIT Delhi"
+        },
+        {
+            "title": "Facial Expression Recognition using Deep CNNs",
+            "event": "STC on Advanced Deep Learning, 27 Feb – 3 Mar",
+            "location": "NITTTR Chandigarh"
+        },
+        {
+            "title": "AI and Agriculture (Fisheries Sector)",
+            "event": "Workshop, 8 Aug",
+            "location": "SKUAST-K, Jammu and Kashmir"
+        }
+    ],
+    "2022": [
+        {
+            "title": "ML in Genomics",
+            "event": "AI/ML in Animal Breeding, 22–28 Mar",
+            "location": "SKUAST-K"
+        },
+        {
+            "title": "Computer Vision on Linux Applications in Engineering",
+            "event": "STC, 28 Nov – 2 Dec",
+            "location": "NITTTR Chandigarh"
+        }
+    ],
+    "2021": [
+        {
+            "title": "ML for Biometric Reorganization & Security",
+            "event": "Webinar, 22–26 Feb",
+            "location": "ITS Engineering College, Noida"
+        },
+        {
+            "title": "Cancelable Biometrics using ML",
+            "event": "Webinar, 26 Jun",
+            "location": "ITS Engineering College, Noida"
+        },
+        {
+            "title": "Session Chair, Confluence 2021",
+            "event": "28–29 Jan",
+            "location": "Amity University, Noida"
+        }
+    ],
+    "2020": [
+        {
+            "title": "India International Science Festival (IISF)",
+            "event": "Virtual, 22–25 Dec",
+            "location": ""
+        }
+    ],
+    "2019": [
+        {
+            "title": "Career Counseling",
+            "event": "23rd Feb",
+            "location": "SP Model Higher Secondary School, Srinagar"
+        }
+    ],
+    "2018": [
+        {
+            "title": "3rd International Conference on Soft Computing: SoCTA-2018",
+            "event": "21–23 Dec",
+            "location": ""
+        }
+    ]
+}

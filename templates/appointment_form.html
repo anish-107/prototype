@@ -1,238 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Request Appointment</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Appointment | Dr. Ranjeet Kumar Rout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Internal CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/appointment.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='templates/about_me.html') }}">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
-      padding: 20px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    label {
-      font-weight: 500;
-    }
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #003366;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005599;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f7f9fc;
-      color: #333;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #003366;
-    }
-
-    .site-title {
-      color: white;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffcc00;
-    }
-
-    .header-section {
-      text-align: center;
-      padding: 40px;
-    }
-
-    .header-section img {
-      max-width: 220px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .header-section h1 {
-      color: #003366;
-      font-size: 28px;
-    }
-
-    .content-section {
-      padding: 20px 80px;
-    }
-
-    .section-title {
-      color: #003366;
-      font-size: 22px;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    a.cv-link {
-      color: #003366;
-      font-weight: bold;
-    }
-
-    a.cv-link:hover {
-      text-decoration: underline;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 500px;
-      margin-top: 20px;
-    }
-
-    label {
-      font-weight: 500;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    button {
-      background-color: #003366;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #005599;
-    }
-
-    @media (max-width: 768px) {
-  .nav ul {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #333;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <div class="site-title">Dr. Ranjeet Kumar Rout</div>
-    <nav>
-      <ul>
-        <li><a href="#biography">Biography</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#membership">Membership</a></li>
-        <li><a href="javascript:void(0);" onclick="openAppointmentForm()">Appointment</a></li>
-        <li><a href="#cv">My CV</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="simple-header">
+      <div class="header-content">
+        <a href="{{ url_for('about_me') }}" class="centered-title">Dr. Ranjeet Kumar Rout</a>
+      </div>
+    </header>
 
-  <h2>Request an Appointment</h2>
-  <form action="#" method="POST">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required />
+  <div class="page-container">
+    <main class="appointment-page">
+      <div class="appointment-header">
+        <h1>Schedule an Appointment</h1>
+        <p>Please fill out the form below to request a meeting</p>
+      </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
+      <div class="appointment-card">
+        <form class="appointment-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <i class="fas fa-user icon"></i>
+          </div>
 
-    <label for="date">Preferred Date:</label>
-    <input type="date" id="date" name="date" required />
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            <i class="fas fa-envelope icon"></i>
+          </div>
 
-    <label for="message">Message / Purpose:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required>
+            <i class="fas fa-calendar-day icon"></i>
+          </div>
 
-    <button type="submit">Request Appointment</button>
-  </form>
+          <div class="form-group">
+            <label for="purpose">Purpose of Meeting</label>
+            <select id="purpose" name="purpose" required>
+              <option value="" disabled selected>Select purpose</option>
+              <option value="research">Research Collaboration</option>
+              <option value="academic">Academic Guidance</option>
+              <option value="project">Project Discussion</option>
+              <option value="other">Other</option>
+            </select>
+            <i class="fas fa-comment-dots icon"></i>
+          </div>
 
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" placeholder="Please provide any additional details"></textarea>
+          </div>
 
-  <footer>
-    <div class="social-icons">
-        <!-- Social media icons with links -->
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Request Appointment
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- ========== Footer Section ========== -->
+    <footer>
+      <div class="social-icons">
+        <!-- Replace placeholder links with real social profile URLs -->
         <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
         <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
-    </div>
-    <!-- Copyright information -->
-    <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
-</footer>
+        <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
+    </footer>
 
-<!-- External JavaScript files -->
-<!-- <script src="{{ url_for('static', filename='js/news.js') }}"></script> -->
-<script src="{{ url_for('static', filename='js/header.js') }}"></script>
-<script src="{{ url_for('static', filename='js/footer.js') }}"></script>
-<!-- Font Awesome icons script -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <!-- ========== JavaScript Files ========== -->
+  <script src="{{ url_for('static', filename='js/appointment.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
+  </div>
 </body>
 </html>

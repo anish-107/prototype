@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags for character encoding and viewport configuration -->
     <meta charset="UTF-8">
     <title>Dr. Ranjeet Kumar Rout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- External CSS files for different sections -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
-    <!-- Font Awesome icons library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
+
 <body>
 
-    <!-- Header Section with navigation -->
+    <!-- Header with logo and navigation menu -->
     <header class="site-header">
         <div class="overlay"></div>
         <div class="nav-container">
+            <!-- Logo linking to About Me -->
             <div class="logo"><a class="logo-link" href="{{ url_for('about_me') }}">Dr. Ranjeet Kumar Rout</a></div>
+            
+            <!-- Hamburger menu for small screens -->
             <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- Navigation bar -->
             <nav class="navbar" id="navbar">
                 <ul>
+                    <!-- Navigation links with active state highlighting -->
                     <li><a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a></li>
+                    
+                    <!-- Dropdown for Research section -->
                     <li class="dropdown {% if active_page in ['projects', 'publications', 'books'] %}active{% endif %}">
                         <a href="javascript:void(0)">Research</a>
                         <div class="dropdown-content">
@@ -31,62 +39,123 @@
                             <a href="{{ url_for('publications') }}" class="{{ 'active' if active_page == 'publications' else '' }}">Publications</a>
                             <a href="{{ url_for('books') }}" class="{{ 'active' if active_page == 'books' else '' }}">Books</a>
                         </div>
-                    </li>                    
+                    </li>
+                    
+                    <!-- Other single navigation links -->
                     <li><a href="{{ url_for('news') }}" class="{{ 'active' if active_page == 'news' else '' }}">News</a></li> 
                     <li><a href="{{ url_for('responsibilities') }}" class="{{ 'active' if active_page == 'responsibilities' else '' }}">Responsibilities</a></li>
-                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
-                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'My Blogs', 'Talks Delivered'] %}active{% endif %}">
-                        <a href="javascript:void(0)">Outreach</a>
+
+                     <!-- Dropdown for Outreach section -->
+                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'Gallery', 'Talks Delivered'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Events</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('seminar_workshop') }}" class="{{ 'active' if active_page == 'seminar_workshop' else '' }}">Seminars & Workshops</a>
-                            <a href="{{ url_for('my_blogs') }}" class="{{ 'active' if active_page == 'my_blogs' else '' }}">My Blogs</a>
+                            <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' else '' }}">Gallery</a>
                             <a href="{{ url_for('talks_delivered') }}" class="{{ 'active' if active_page == 'talks_delivered' else '' }}">Talks Delivered</a>
                         </div>
                     </li>
+
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
                     <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a></li>
+
                 </ul>
             </nav>
         </div>
     </header>
+
     
-<!-- Main Section -->
-    <main class="contact-main">
-        <h2>Contact Me</h2>
-        <div class="contact-container">
-            <form id="contactForm">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    <!-- Main Section -->
+    <main class="contact-container">
+        <h1 class="page-title">Contact Information</h1>
+        
+        <div class="contact-grid">
+            <!-- Professor's Contact Card -->
+            <div class="contact-card professor-card">
+                <div class="card-header">
+                    <i class="fas fa-user-tie"></i>
+                    <h2 id="professor-name">Dr. Ranjeet Kumar Rout</h2>
+                </div>
+                <div class="card-body">
+                    <p><i class="fas fa-briefcase"></i> <span id="professor-designation">Associate Professor</span></p>
+                    <p><i class="fas fa-university"></i> <span id="professor-department">Department of Computer Science & Engineering</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="professor-address">Room No. 123, IT Building, NIT Jalandhar</span></p>
+                    <p><i class="fas fa-phone"></i> <span id="professor-phone">+91-1234567890</span></p>
+                    <p><i class="fas fa-envelope"></i> <a id="professor-email" href="mailto:routrk@nitj.ac.in">routrk@nitj.ac.in</a></p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/your-profile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://twitter.com/your-handle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
 
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="What's your query about?" required>
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2><i class="fas fa-paper-plane"></i> Send a Message</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject*</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader" style="display:none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+                </form>
+                <div id="formResponse" class="form-response"></div>
+            </div>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <p id="formMessage" class="form-message"></p>
+            <!-- Map and Visit Information -->
+            <div class="visit-info">
+                <h2><i class="fas fa-map-marked-alt"></i> Visit Us</h2>
+                <div id="map" class="map-container"></div>
+                <div class="office-hours">
+                    <h3>Office Hours</h3>
+                    <ul>
+                        <li><span class="day">Monday</span> <span class="hours">8:30 am – 5:30 pm</span></li>
+                        <li><span class="day">Tuesday</span> <span class="hours">8:30 am – 5:30 pm</span></li>
+                        <li><span class="day">Wednesday</span> <span class="hours">8:30 am – 5:30 pm</span></li>
+                        <li><span class="day">Thursday</span> <span class="hours">8:30 am – 5:30 pm</span></li>
+                        <li><span class="day">Friday</span> <span class="hours">8:30 am – 5:30 pm</span></li>
+                        <li><span class="day weekend">Saturday</span> <span class="hours closed">Closed</span></li>
+                        <li><span class="day weekend">Sunday</span> <span class="hours closed">Closed</span></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
 
-
-    <!-- Footer Section with social media links -->
+    <!-- ================= Footer Section ================= -->
     <footer>
         <div class="social-icons">
-            <!-- Social media icons with links -->
+            <!-- Update these links with real profile URLs -->
             <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
         </div>
-        <!-- Copyright information -->
         <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
     </footer>
 
     <!-- External JavaScript files -->
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
     <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
-
 </body>
 </html>

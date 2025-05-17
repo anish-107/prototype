@@ -15,15 +15,23 @@
 </head>
 <body>
 
-    <!-- Header Section with navigation -->
+    <!-- Header with logo and navigation menu -->
     <header class="site-header">
         <div class="overlay"></div>
         <div class="nav-container">
+            <!-- Logo linking to About Me -->
             <div class="logo"><a class="logo-link" href="{{ url_for('about_me') }}">Dr. Ranjeet Kumar Rout</a></div>
+            
+            <!-- Hamburger menu for small screens -->
             <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- Navigation bar -->
             <nav class="navbar" id="navbar">
                 <ul>
+                    <!-- Navigation links with active state highlighting -->
                     <li><a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a></li>
+                    
+                    <!-- Dropdown for Research section -->
                     <li class="dropdown {% if active_page in ['projects', 'publications', 'books'] %}active{% endif %}">
                         <a href="javascript:void(0)">Research</a>
                         <div class="dropdown-content">
@@ -31,19 +39,26 @@
                             <a href="{{ url_for('publications') }}" class="{{ 'active' if active_page == 'publications' else '' }}">Publications</a>
                             <a href="{{ url_for('books') }}" class="{{ 'active' if active_page == 'books' else '' }}">Books</a>
                         </div>
-                    </li>                    
+                    </li>
+                    
+                    <!-- Other single navigation links -->
                     <li><a href="{{ url_for('news') }}" class="{{ 'active' if active_page == 'news' else '' }}">News</a></li> 
                     <li><a href="{{ url_for('responsibilities') }}" class="{{ 'active' if active_page == 'responsibilities' else '' }}">Responsibilities</a></li>
-                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
-                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'My Blogs', 'Talks Delivered'] %}active{% endif %}">
-                        <a href="javascript:void(0)">Outreach</a>
+
+                     <!-- Dropdown for Outreach section -->
+                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'Gallery', 'Talks Delivered'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Events</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('seminar_workshop') }}" class="{{ 'active' if active_page == 'seminar_workshop' else '' }}">Seminars & Workshops</a>
-                            <a href="{{ url_for('my_blogs') }}" class="{{ 'active' if active_page == 'my_blogs' else '' }}">My Blogs</a>
+                            <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' else '' }}">Gallery</a>
                             <a href="{{ url_for('talks_delivered') }}" class="{{ 'active' if active_page == 'talks_delivered' else '' }}">Talks Delivered</a>
                         </div>
                     </li>
+
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
                     <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -51,7 +66,6 @@
 
     <!-- Main content -->
     <main>
-
         {% block content %}
         <div class="publications-container">
             <div class="pub-header">
@@ -59,8 +73,20 @@
                 <div class="pub-types">
                     <button class="pub-type-btn active" data-type="journal">Journal Publications</button>
                     <button class="pub-type-btn" data-type="conference">Conference Publications</button>
-                    <button class="pub-type-btn" data-type="scholar">Scholar Publications</button>
                 </div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search publications by title, author, or keywords...">
+                <button id="search-btn"></i></button>
+                <button id="refresh-btn" title="Refresh Publications Data">
+                    <i class="fas fa-sync-alt"></i>
+                    <span class="refresh-text">Refresh</span>
+                </button>
+            </div>
+
+            <div id="no-results-message" style="display: none; text-align: center; padding: 2rem; color: var(--neutral-medium);">
+                No publications found matching your search criteria.
             </div>
         
             <div class="filters">
@@ -82,6 +108,11 @@
                         {% endfor %}
                     </select>
                 </div>
+            </div>
+
+            <div class="publications-graph">
+                <h3>Publications by Year</h3>
+                <canvas id="publicationsChart"></canvas>
             </div>
 
             <div id="journal-pubs" class="pub-section active">
@@ -125,7 +156,7 @@
                                 <a href="https://doi.org/{{ pub.doi }}" target="_blank" class="pub-link">DOI</a>
                                 {% endif %}
                                 {% if pub.pdf %}
-                                <a href="{{ url_for('static', filename='papers/' + pub.pdf) }}" target="_blank" class="pub-link">PDF</a>
+                                <a href="{{ url_for('static', filename='docs/papers/' + pub.pdf) }}" target="_blank" class="pub-link">PDF</a>
                                 {% endif %}
                                 <button class="pub-bibtex" data-bibtex="{{ pub.bibtex|escape }}">BibTeX</button>
                             </div>
@@ -135,27 +166,7 @@
                 </div>
                 {% endfor %}
             </div>
-
-            <div id="scholar-pubs" class="pub-section">
-                <ul class="publications-list">
-                    {% if scholar_pubs %}
-                        {% for pub in scholar_pubs %}
-                        <li class="pub-card" data-year="{{ pub.year }}" data-topics="{{ pub.topics|join(',') }}">
-                            <div class="pub-title">{{ pub.title }}</div>
-                            <div class="pub-venue">{{ pub.venue }}, {{ pub.year }}</div>
-                            <div class="pub-links">
-                                <a href="{{ pub.link }}" target="_blank" class="pub-link">View on Google Scholar</a>
-                            </div>
-                        </li>
-                        {% endfor %}
-                    {% else %}
-                        <p>No publications found or Google Scholar is unavailable.</p>
-                    {% endif %}
-                </ul>
-            </div>
             
-            
-        
             <!-- BibTeX Modal -->
             <div id="bibtex-modal" class="modal">
                 <div class="modal-content">
@@ -169,16 +180,15 @@
         {% endblock %}
     </main>
 
-    <!-- Footer Section with social media links -->
+    <!-- ================= Footer Section ================= -->
     <footer>
         <div class="social-icons">
-            <!-- Social media icons with links -->
+            <!-- Update these links with real profile URLs -->
             <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
         </div>
-        <!-- Copyright information -->
         <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
     </footer>
 
@@ -186,6 +196,7 @@
     <script src="{{ url_for('static', filename='js/publications.js') }}"></script>
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
     <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,56 @@
+{
+    "2022": [
+        {
+            "title": "Protein-Protein Interaction Prediction from Primary Sequences Using Supervised Machine Learning Algorithm",
+            "authors": "Monika Khandelwal, Ranjeet Ku Rout, Saiyed Umer",
+            "venue": "Confluence 2022",
+            "year": "2022",
+            "doi": "10.1109/CONFLUENCE.2022.9734061",
+            "pdf": "Protein-Protein_Interaction_Prediction_from_Primary_Sequences_Using_Supervised_Machine_Learning_Algorithm.pdf",
+            "bibtex": "@inproceedings{khandelwal2022protein,\n  title={Protein-Protein Interaction Prediction from Primary Sequences Using Supervised Machine Learning Algorithm},\n  author={Khandelwal, Monika and Rout, Ranjeet Ku and Umer, Saiyed},\n  booktitle={2022 12th International Conference on Cloud Computing, Data Science & Engineering (Confluence)},\n  pages={123--128},\n  year={2022},\n  organization={IEEE}\n}",
+            "topics": ["Protein-Protein Interaction", "Machine Learning", "Bioinformatics", "Sequence Analysis"]
+        }
+    ],
+    "2021": [
+        {
+            "title": "A Novel Template Protection Scheme for Face Recognition System",
+            "authors": "Alamgir Sardar, Saiyed Umer, Ranjeet Kumar Rout",
+            "venue": "CAMSE 2021, NIT Jalandhar",
+            "year": "2021",
+            "doi": "",
+            "pdf": "A_Novel_Template_Protection_Scheme_for_Face_Recognition_System.pdf",
+            "bibtex": "@inproceedings{sardar2021novel,\n  title={A Novel Template Protection Scheme for Face Recognition System},\n  author={Sardar, Alamgir and Umer, Saiyed and Rout, Ranjeet Kumar},\n  booktitle={Proceedings of CAMSE 2021},\n  year={2021},\n  organization={NIT Jalandhar}\n}",
+            "topics": ["Biometric Security", "Face Recognition", "Template Protection", "Privacy Preservation"]
+        },
+        {
+            "title": "Encryption and Decryption Scheme for IoT Communications Using Multilevel Encryption",
+            "authors": "Sanchit Sindhwani, Sabha Sheikh, Saiyed Umer, Ranjeet Kumar Rout",
+            "venue": "Information and Communication Technology for Competitive Strategies (ICTCS 2020)",
+            "year": "2021",
+            "doi": "10.1007/978-981-16-0882-7_81",
+            "pdf": "Encryption_and_Decryption_Scheme_for_IoT_Communications_Using_Multilevel_Encryption.pdf",
+            "bibtex": "@inproceedings{sindhwani2021encryption,\n  title={Encryption and Decryption Scheme for IoT Communications Using Multilevel Encryption},\n  author={Sindhwani, Sanchit and Sheikh, Sabha and Umer, Saiyed and Rout, Ranjeet Kumar},\n  booktitle={Information and Communication Technology for Competitive Strategies (ICTCS 2020)},\n  pages={1013--1022},\n  year={2021},\n  publisher={Springer, Singapore}\n}",
+            "topics": ["IoT Security", "Multilevel Encryption", "Cryptography", "Secure Communication"]
+        },
+        {
+            "title": "Machine Learning Techniques for IoT Data Analytics",
+            "authors": "Nailah Afshan, Ranjeet Kumar Rout",
+            "venue": "Book Chapter in 'Machine Learning-Based Data Analytics for IoT-Enabled Industry Automation'",
+            "year": "2021",
+            "doi": "10.1002/9781119740780.ch3",
+            "pdf": "Machine_Learning_Techniques_for_IoT_Data_Analytics.pdf",
+            "bibtex": "@incollection{afshan2021machine,\n  title={Machine Learning Techniques for IoT Data Analytics},\n  author={Afshan, Nailah and Rout, Ranjeet Kumar},\n  booktitle={Machine Learning-Based Data Analytics for IoT-Enabled Industry Automation},\n  pages={45--67},\n  year={2021},\n  publisher={Wiley}\n}",
+            "topics": ["IoT Analytics", "Machine Learning", "Data Processing", "Industry 4.0"]
+        },
+        {
+            "title": "Implementation of Affine Boolean Function for 16 Queen Problem and Its Application Thereof",
+            "authors": "Ranjeet Kumar Rout, Saiyed Umer, Sabha Sheikh, Harveer Singh Pali, Ratikanta Sahoo",
+            "venue": "Patent Application",
+            "year": "2021",
+            "doi": "",
+            "pdf": "Implementation_of_Affine_Boolean_Function_for_16_Queen_Problem_and_Its_Application_Thereof.pdf",
+            "bibtex": "@misc{rout2021implementation,\n  title={Implementation of Affine Boolean Function for 16 Queen Problem and Its Application Thereof},\n  author={Rout, Ranjeet Kumar and Umer, Saiyed and Sheikh, Sabha and Pali, Harveer Singh and Sahoo, Ratikanta},\n  year={2021},\n  note={Indian Patent Application No. 202111035066}\n}",
+            "topics": ["Affine Boolean Functions", "Optimization Problems", "Combinatorial Algorithms", "Patent"]
+        }
+    ]
+}

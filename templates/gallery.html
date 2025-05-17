@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Ranjeet Kumar Rout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header with logo and navigation menu -->
+    <header class="site-header">
+        <div class="overlay"></div>
+        <div class="nav-container">
+            <!-- Logo linking to About Me -->
+            <div class="logo"><a class="logo-link" href="{{ url_for('about_me') }}">Dr. Ranjeet Kumar Rout</a></div>
+            
+            <!-- Hamburger menu for small screens -->
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- Navigation bar -->
+            <nav class="navbar" id="navbar">
+                <ul>
+                    <!-- Navigation links with active state highlighting -->
+                    <li><a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a></li>
+                    
+                    <!-- Dropdown for Research section -->
+                    <li class="dropdown {% if active_page in ['projects', 'publications', 'books'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Research</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('projects') }}" class="{{ 'active' if active_page == 'projects' else '' }}">Projects</a>
+                            <a href="{{ url_for('publications') }}" class="{{ 'active' if active_page == 'publications' else '' }}">Publications</a>
+                            <a href="{{ url_for('books') }}" class="{{ 'active' if active_page == 'books' else '' }}">Books</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('news') }}" class="{{ 'active' if active_page == 'news' else '' }}">News</a></li> 
+                    <li><a href="{{ url_for('responsibilities') }}" class="{{ 'active' if active_page == 'responsibilities' else '' }}">Responsibilities</a></li>
+
+                     <!-- Dropdown for Outreach section -->
+                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'Gallery', 'Talks Delivered'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Events</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('seminar_workshop') }}" class="{{ 'active' if active_page == 'seminar_workshop' else '' }}">Seminars & Workshops</a>
+                            <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' else '' }}">Gallery</a>
+                            <a href="{{ url_for('talks_delivered') }}" class="{{ 'active' if active_page == 'talks_delivered' else '' }}">Talks Delivered</a>
+                        </div>
+                    </li>
+
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="gallery-container">
+        <h1 class="gallery-title">Events</h1>
+        
+        <div class="event-cards">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-slider">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <img src="{{ url_for('static', filename='images/events/yuva-sangam/image1.png') }}" alt="Yuva Sangam Image 1">
+                            <img src="{{ url_for('static', filename='images/events/yuva-sangam/image2.png') }}" alt="Yuva Sangam Image 2">
+                            <img src="{{ url_for('static', filename='images/events/yuva-sangam/image3.png') }}" alt="Yuva Sangam Image 3">
+                        </div>
+                        <button class="slider-prev">&lt;</button>
+                        <button class="slider-next">&gt;</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+                <div class="event-content">
+                    <h2>Yuva Sangam - 2024</h2>
+                    <h3>NIT Srinagar Jammu and Kashmir and VNIT Nagpur Maharashtra</h3>
+                    <p>An initiative by Government of India to strengthen people to people connect especially among youth across the Nation.</p>
+                    <p>Ek Bharat Shreishtha Bharat Yuva Sangam (युवा संगम) Phase-IV focuses on conducting exposure tours of the youths comprising mainly of students studying in Higher Educational institutions & some off-campus youngsters from across the Nation to various States of India.</p>
+                </div>
+            </div>
+            
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-slider">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <img src="{{ url_for('static', filename='images/events/matri-summit/image1.png') }}" alt="MATRI Summit Image 1">
+                            <img src="{{ url_for('static', filename='images/events/matri-summit/image2.png') }}" alt="MATRI Summit Image 2">
+                            <img src="{{ url_for('static', filename='images/events/matri-summit/image3.png') }}" alt="MATRI Summit Image 3">
+                        </div>
+                        <button class="slider-prev">&lt;</button>
+                        <button class="slider-next">&gt;</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+                <div class="event-content">
+                    <h2>MATRI - 2024 Summit</h2>
+                    <h3>2nd International Conference on Machine Intelligence for Research & Innovations</h3>
+                    <p>Provides a synergistic environment dedicated to provide the recent development in Intelligent and Autonomous Robots (IAR), Unmanned Aerial Vehicle (UAV) and Autonomous Underwater Vehicle (AUV).</p>
+                    <p>The aim of MATRI-2024 summit is to promote the research advancement in the theory and realization of Machine Intelligence covering topics such as Machine Learning, Deep Learning, Quantum Machine Learning, Real-time Computer Vision, Pattern Recognition, Neural Language Processing, Statistical Modeling, Autonomous Vehicles, Human Interfaces, Computational Intelligence, and Robotics.</p>
+                </div>
+            </div>
+            
+            <!-- Event 3 - Agri Robotics -->
+            <div class="event-card">
+                <div class="event-slider">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <img src="{{ url_for('static', filename='images/events/agri-robotics/image1.png') }}" alt="Agri Robotics Image 1">
+                            <img src="{{ url_for('static', filename='images/events/agri-robotics/image2.png') }}" alt="Agri Robotics Image 2">
+                            <img src="{{ url_for('static', filename='images/events/agri-robotics/image3.png') }}" alt="Agri Robotics Image 3">
+                        </div>
+                        <button class="slider-prev">&lt;</button>
+                        <button class="slider-next">&gt;</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+                <div class="event-content">
+                    <h2>Agri Robotics - 2023</h2>
+                    <p>Demonstrated the potential of technology and robotics in agriculture, fostering meaningful discussions and knowledge exchange.</p>
+                    <p>The event demonstrated the potential of technology and robotics in agriculture, fostering meaningful discussions and knowledge exchange. It marked a significant stride toward innovation in this critical sector.</p>
+                    <p>The five-day Agri Robotics 2023 workshop, jointly organised by the Department of Computer Science and Engineering at the National Institute of Technology, Srinagar, and the National Institute of Technology, Agartala, concluded with resounding success.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for full size image -->
+        <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image">
+            <div class="caption"></div>
+        </div>
+    </main>
+
+    <!-- ================= Footer Section ================= -->
+    <footer>
+        <div class="social-icons">
+            <!-- Update these links with real profile URLs -->
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
+    </footer>
+
+    <!-- External JavaScript files -->
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
+</body>
+</html>

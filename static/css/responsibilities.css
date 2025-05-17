@@ -2,63 +2,209 @@
 .responsibilities-section {
   padding: 60px 20px;
   background-color: #f9f9f9;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Container to center content */
 .container {
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Section Title Styling */
+.search-container {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-container button {
+  padding: 12px 20px;
+  background-color: #004d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+  background-color: #003333;
+}
+
+#resetButton {
+  background-color: #a80000;
+}
+
+#resetButton:hover {
+  background-color: #8a0000;
+}
+
 .section-title {
   text-align: center;
   font-size: 2rem;
   color: #a80000;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 15px;
 }
 
-/* Category Styling */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #004d4d;
+}
+
 .category {
   margin-bottom: 40px;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
 }
 
-/* Category Title Styling */
+.category:hover {
+  transform: translateY(-5px);
+}
+
 .category-title {
   font-size: 1.4rem;
   color: #004d4d;
-  font-weight: bold;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
 }
 
-/* Responsibilities List Styling */
 .responsibilities-list {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
-/* Individual Responsibility Item */
-.responsibilities-list li {
-  margin-bottom: 10px;
+.responsibility-item {
+  margin-bottom: 12px;
   font-size: 1.05rem;
-  color: #0f4f4f;
+  color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-/* Role Styling */
-.responsibilities-list .role {
+.responsibility-item:hover {
+  background-color: #e9e9e9;
+}
+
+.role-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.role {
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
-/* Date Styling */
-.responsibilities-list .date {
+.institute {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.date-range {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  min-width: 150px;
+  margin-left: 20px;
+}
+
+.from, .to {
   font-style: italic;
   color: #666;
   font-size: 0.95rem;
 }
+
+.to::before {
+  content: "to: ";
+  color: #999;
+}
+
+.highlight {
+  background-color: #fffacd;
+  border-left: 3px solid #ffd700;
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  color: #666;
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+  }
+  
+  .responsibility-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .date-range {
+    margin-left: 0;
+    margin-top: 10px;
+    align-self: flex-end;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .to::before {
+    content: "";
+  }
+  
+  .search-container {
+    margin-bottom: 30px;
+  }
+
+  .search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .search-container input:focus {
+    outline: none;
+    border-color: #004d4d;
+    box-shadow: 0 0 0 2px rgba(0, 77, 77, 0.1);
+  }
+}
+

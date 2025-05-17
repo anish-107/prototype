@@ -1,6 +1,7 @@
 /* ================================
    Navbar Toggle Functionality
 ================================== */
+// Toggles the 'active' class on the navbar for responsive menu (mobile)
 function toggleMenu() {
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('active');
@@ -12,35 +13,35 @@ function toggleMenu() {
    - Auto-play every 4 seconds
    - Manual navigation support
 ================================== */
-let currentSlide = 0;
-const slides = document.querySelectorAll(".carousel-image");
-const dots = document.querySelectorAll(".dot");
+let currentSlide = 0; // Track the currently visible slide
+const slides = document.querySelectorAll(".carousel-image"); // All slide images
+const dots = document.querySelectorAll(".dot"); // Navigation dots
 
-// Show a specific slide
+// Display the slide with the given index and activate the corresponding dot
 function showSlide(index) {
     slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-        dots[i].classList.toggle("active", i === index);
+        slide.classList.toggle("active", i === index); // Show current slide
+        dots[i].classList.toggle("active", i === index); // Highlight corresponding dot
     });
     currentSlide = index;
 }
 
-// Show next slide
+// Move to the next slide, wrapping back to the first if at the end
 function nextSlide() {
     showSlide((currentSlide + 1) % slides.length);
 }
 
-// Show previous slide
+// Move to the previous slide, wrapping to the last if at the beginning
 function prevSlide() {
     showSlide((currentSlide - 1 + slides.length) % slides.length);
 }
 
-// Set slide manually (e.g., via dot click)
+// Manually set the slide, e.g., on dot click
 function setSlide(index) {
     showSlide(index);
 }
 
-// Auto-play
+// Automatically switch to the next slide every 4 seconds
 setInterval(nextSlide, 4000);
 
 
@@ -51,30 +52,33 @@ setInterval(nextSlide, 4000);
 ================================== */
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Initialize Swiper.js for News Section
+    // Check if the news swiper exists, then initialize Swiper.js
     if (document.querySelector('.news-swiper')) {
         new Swiper('.news-swiper', {
-            loop: true,
-            autoplay: { delay: 5000 },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: { el: '.swiper-pagination' },
+            loop: true, // Infinite loop
+            autoplay: { delay: 5000 }, // Slide every 5 seconds
+            slidesPerView: 1, // Show 1 slide at a time by default
+            spaceBetween: 20, // Space between slides
+            pagination: { el: '.swiper-pagination' }, // Dots navigation
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
+                nextEl: '.swiper-button-next', // Next button
+                prevEl: '.swiper-button-prev'  // Previous button
             },
+            // Responsive breakpoints
             breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
+                768: { slidesPerView: 2 },   // 2 slides for tablets
+                1024: { slidesPerView: 3 }   // 3 slides for desktops
             }
         });
     }
 
-    // Expand/Collapse News Card Text
+    // Handle expanding/collapsing "Read More" text in news cards
     document.addEventListener('click', function (e) {
+        // If clicked element is a "Read More" button
         if (e.target.classList.contains('read-more')) {
             const excerpt = e.target.closest('.news-content').querySelector('.news-excerpt');
-            excerpt.classList.toggle('expanded');
+            excerpt.classList.toggle('expanded'); // Toggle full text
+            // Change button text accordingly
             e.target.textContent = excerpt.classList.contains('expanded') ? 'Read Less' : 'Read More';
         }
     });

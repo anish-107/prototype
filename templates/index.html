@@ -5,7 +5,7 @@
     <title>Dr. Ranjeet Kumar Rout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Linking local and external stylesheets -->
+    <!-- Load local and external styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
@@ -14,15 +14,23 @@
 </head>
 <body>
 
-    <!-- Header section with logo and navigation menu -->
+    <!-- Header with logo and navigation menu -->
     <header class="site-header">
         <div class="overlay"></div>
         <div class="nav-container">
+            <!-- Logo linking to About Me -->
             <div class="logo"><a class="logo-link" href="{{ url_for('about_me') }}">Dr. Ranjeet Kumar Rout</a></div>
+            
+            <!-- Hamburger menu for small screens -->
             <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- Navigation bar -->
             <nav class="navbar" id="navbar">
                 <ul>
+                    <!-- Navigation links with active state highlighting -->
                     <li><a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a></li>
+                    
+                    <!-- Dropdown for Research section -->
                     <li class="dropdown {% if active_page in ['projects', 'publications', 'books'] %}active{% endif %}">
                         <a href="javascript:void(0)">Research</a>
                         <div class="dropdown-content">
@@ -30,38 +38,48 @@
                             <a href="{{ url_for('publications') }}" class="{{ 'active' if active_page == 'publications' else '' }}">Publications</a>
                             <a href="{{ url_for('books') }}" class="{{ 'active' if active_page == 'books' else '' }}">Books</a>
                         </div>
-                    </li>                    
+                    </li>
+                    
+                    <!-- Other single navigation links -->
                     <li><a href="{{ url_for('news') }}" class="{{ 'active' if active_page == 'news' else '' }}">News</a></li> 
                     <li><a href="{{ url_for('responsibilities') }}" class="{{ 'active' if active_page == 'responsibilities' else '' }}">Responsibilities</a></li>
-                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
-                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'My Blogs', 'Talks Delivered'] %}active{% endif %}">
-                        <a href="javascript:void(0)">Outreach</a>
+
+                     <!-- Dropdown for Outreach section -->
+                    <li class="dropdown {% if active_page in ['Seminars & Workshops', 'Gallery', 'Talks Delivered'] %}active{% endif %}">
+                        <a href="javascript:void(0)">Events</a>
                         <div class="dropdown-content">
                             <a href="{{ url_for('seminar_workshop') }}" class="{{ 'active' if active_page == 'seminar_workshop' else '' }}">Seminars & Workshops</a>
-                            <a href="{{ url_for('my_blogs') }}" class="{{ 'active' if active_page == 'my_blogs' else '' }}">My Blogs</a>
+                            <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' else '' }}">Gallery</a>
                             <a href="{{ url_for('talks_delivered') }}" class="{{ 'active' if active_page == 'talks_delivered' else '' }}">Talks Delivered</a>
                         </div>
                     </li>
+
+                    <!-- Other single navigation links -->
+                    <li><a href="{{ url_for('people') }}" class="{{ 'active' if active_page == 'people' else '' }}">People</a></li>
                     <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a></li>
+
                 </ul>
             </nav>
         </div>
     </header>
 
-
-    <!-- Main body of the page -->
+    <!-- ================= Main Content ================= -->
     <main>
 
-        <!-- Introduction block with profile photo and info -->
+        <!-- ===== Introduction Section with photo and info ===== -->
         <section class="intro-section">
             <div class="intro-image">
-                <a class="image-link" href="{{ url_for('about_me') }}"><img src="{{ url_for('static', filename='images/index/teacher.jpg') }}" alt="Dr. Ranjeet Kumar Rout"></a>
+                <!-- Profile picture linking to about page -->
+                <a class="image-link" href="{{ url_for('about_me') }}">
+                    <img src="{{ url_for('static', filename='images/index/teacher.jpg') }}" alt="Dr. Ranjeet Kumar Rout">
+                </a>
             </div>
             <div class="intro-text">
                 <h1 class="prof-name">Dr. Ranjeet Kumar Rout</h1>
                 <p class="designation-text">
-                    Assistant Professor, Department of Computer Science and Engineering, National Institute of Technology Srinagar,<br>
-                    Hazratbal-190006, J&K, India.
+                    Assistant Professor (Grade-I), 	Department of Information Technology <br>
+                    Dr. B. R. Ambedkar National Institute of Technology Jalandhar<br>
+                    Punjab-144008, India
                 </p>
                 <p class="research-interest-text">
                     <strong>Research Interest:</strong>
@@ -71,32 +89,31 @@
             </div>
         </section>
 
-        <!-- Professor’s welcome message to visitors -->
+        <!-- ===== Professor’s welcome message ===== -->
         <section class="welcome-note">
             <span class="welcome-heading">Message from professor</span>
             <p class="welcome-body">
-                Welcome to the website of Dr. Ranjeet Kumar Rout.
-                As an Assistant Professor in the Department of Computer Science and Engineering at the National Institute of Technology Srinagar, I am committed to advancing research and education in the domains of Artificial Intelligence, Machine Learning, Biometric Systems, and Cyber-Physical Systems.
+                I'm Dr. Ranjeet Kumar Rout, an Assistant Professor in Department of Information Technology at NIT Jalandhar. My work focuses on Artificial Intelligence and Machine Learning, particularly for Biometric Systems and Cyber-Physical applications.
 
-                This platform serves as a gateway to my academic contributions, ongoing research initiatives, and professional engagements. It is also intended to support students, researchers, and collaborators in exploring opportunities for learning and innovation.
+                This website shares my research journey, current projects, and teaching activities. Whether you're a student, fellow researcher, or potential collaborator, I hope you'll find useful resources here. Let's connect and explore ideas together!
             </p>
         </section>
     
-        <!-- Carousel (image slider) and group introduction -->
+        <!-- ===== Carousel Slider and Group Description ===== -->
         <section class="carousel-section">
             <div class="carousel-container">
                 <div class="carousel">
-                    <!-- Slide images -->
+                    <!-- Slideshow images -->
                     <img src="{{ url_for('static', filename='images/index/slide1.jpg') }}" class="carousel-image active" alt="Slide 1">
                     <img src="{{ url_for('static', filename='images/index/slide2.jpg') }}" class="carousel-image" alt="Slide 2">
                     <img src="{{ url_for('static', filename='images/index/slide3.jpg') }}" class="carousel-image" alt="Slide 3">
 
-                    <!-- Slide navigation arrows -->
+                    <!-- Carousel navigation arrows -->
                     <button class="prev" onclick="prevSlide()">&#10094;</button>
                     <button class="next" onclick="nextSlide()">&#10095;</button>
                 </div>
 
-                <!-- Navigation dots for carousel -->
+                <!-- Navigation dots below carousel -->
                 <div class="carousel-dots">
                     <span class="dot active" onclick="setSlide(0)"></span>
                     <span class="dot" onclick="setSlide(1)"></span>
@@ -104,30 +121,29 @@
                 </div>
             </div>
 
-            <!-- TODO : Description of the research group -->
+            <!-- Research group description -->
             <div class="carousel-text">
-                <h2 class="carousel-heading">Our Research Group</h2>
+                <h2 class="carousel-heading">My Research Group</h2>
                 <p class="carousel-para">
-                    We are a dynamic research group at the intersection of Artificial Intelligence, Cyber-Physical Systems, and Biometric Analytics. 
-                    Our mission is to develop innovative, real-world solutions through interdisciplinary collaboration and cutting-edge technologies.
+                    We explore AI-driven solutions for biometric systems and cyber-physical security, combining theoretical research with practical applications. Our work focuses on developing intelligent technologies that address real-world challenges through innovation and collaboration.
                 </p>
             </div>
         </section>
     </main>    
 
-    <!-- Footer with social media icons and copyright -->
+    <!-- ================= Footer Section ================= -->
     <footer>
         <div class="social-icons">
-            <!-- TODO : Replace with actual profile links -->
+            <!-- Update these links with real profile URLs -->
             <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=UYHadLQAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://twitter.com/your-handle" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:routrk@nitj.ac.in"><i class="fas fa-envelope"></i></a>
         </div>
         <p>&copy; 2025 Dr. Ranjeet Kumar Rout. All rights reserved.</p>
     </footer>
 
-    <!-- Javascript File Link -->
+    <!-- ================= Scripts ================= -->
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
     <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>

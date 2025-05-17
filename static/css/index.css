@@ -1,6 +1,7 @@
 /* =======================
    Font Imports
 ======================= */
+/* Importing Google Fonts: Caveat (handwritten), Lora (serif), and Poppins (sans-serif) */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap');
 
 
@@ -8,30 +9,30 @@
    Intro Section (Top of the Page)
 ======================= */
 .intro-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 40px 40px;
-    gap: 50px;
-    background-color: #fff;
-    flex-wrap: wrap; /* Ensures responsiveness */
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    padding: 60px 40px 40px; /* Top, horizontal, bottom padding */
+    gap: 50px; /* Space between image and text */
+    background-color: #fff; /* White background */
+    flex-wrap: wrap; /* Stack items on smaller screens */
 }
 
 .intro-image img {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 300px; /* Restrict image width */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
 }
 
 .intro-text {
-    max-width: 650px;
-    text-align: left;
+    max-width: 650px; /* Limit text container width */
+    text-align: left; /* Align text to the left */
 }
 
 .intro-text h1 {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-    color: #111;
+    font-size: 2.4rem; /* Large heading size */
+    margin-bottom: 10px; /* Spacing below heading */
+    color: #111; /* Dark heading text */
 }
 
 
@@ -39,27 +40,27 @@
    Identity & Designation
 ======================= */
 .prof-name {
-    font-family: 'Caveat', cursive;
-    font-size: 2.8rem;
-    color: #2c2c2c;
-    text-align: center;
+    font-family: 'Caveat', cursive; /* Handwritten font for name */
+    font-size: 2.8rem; /* Large font size for name */
+    color: #2c2c2c; /* Dark grey color */
+    text-align: center; /* Centered text */
 }
 
 .designation {
-    font-style: italic;
-    color: #a50000;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    font-style: italic; /* Italic style */
+    color: #a50000; /* Dark red color */
+    font-size: 1.1rem; /* Medium font size */
+    margin-bottom: 20px; /* Spacing below */
+    line-height: 1.6; /* Improved readability */
 }
 
 .designation-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: #7a0606;
-    margin-top: 0.5rem;
-    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Clean modern font */
+    font-weight: 400; /* Regular weight */
+    font-size: 1rem; /* Normal size */
+    color: #7a0606; /* Slightly lighter red */
+    margin-top: 0.5rem; /* Spacing above */
+    text-align: center; /* Centered text */
 }
 
 
@@ -67,17 +68,17 @@
    Research Interest Section
 ======================= */
 .research-interest {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.1rem; /* Base font size */
+    line-height: 1.6; /* Readable line height */
 }
 
 .research-interest-text {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    color: #333;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    text-align: center;
+    font-family: 'Lora', serif; /* Serif font for academic tone */
+    font-style: italic; /* Italic style for emphasis */
+    color: #333; /* Dark grey */
+    font-size: 1rem; /* Normal size */
+    margin-top: 0.5rem; /* Top spacing */
+    text-align: center; /* Centered text */
 }
 
 
@@ -85,31 +86,31 @@
    Welcome Note Section
 ======================= */
 .welcome-note {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin: 2rem auto;
-    max-width: 1000px;
+    background-color: #f9f9f9; /* Light grey background */
+    padding: 2rem; /* Internal spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    margin: 2rem auto; /* Vertical spacing and center alignment */
+    max-width: 1000px; /* Container width */
 }
 
 .welcome-heading {
-    font-family: 'Caveat', cursive;
-    font-size: 1.8rem;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    color: #444;
+    font-family: 'Caveat', cursive; /* Handwritten font */
+    font-size: 1.8rem; /* Medium-large size */
+    font-weight: 600; /* Semi-bold */
+    display: block; /* Block-level element */
+    margin-bottom: 0.5rem; /* Space below heading */
+    text-align: center; /* Centered */
+    color: #444; /* Medium grey color */
 }
 
 .welcome-body {
-    font-family: 'Lora', serif;
-    line-height: 1.6;
-    color: #444;
-    font-size: 1.1rem;
-    text-align: justify;
-    max-width: 800px;
-    margin: auto;
-    padding: 1rem;
+    font-family: 'Lora', serif; /* Serif for formal tone */
+    line-height: 1.6; /* Line spacing for readability */
+    color: #444; /* Medium-dark text */
+    font-size: 1.1rem; /* Slightly larger text */
+    text-align: justify; /* Evenly align text on both sides */
+    max-width: 800px; /* Limit width for readability */
+    margin: auto; /* Center horizontally */
+    padding: 1rem; /* Inner spacing */
 }

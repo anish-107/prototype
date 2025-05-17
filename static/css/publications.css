@@ -241,3 +241,180 @@
         margin: 10% auto; /* Adjust margin for better positioning */
     }
 }
+
+/* Search Bar Styles */
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    margin: 1.5rem auto 2rem;
+    max-width: 800px;
+    position: relative;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    padding-right: 3rem;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--primary-main);
+    box-shadow: 0 2px 12px rgba(40, 116, 166, 0.2);
+}
+
+#search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 3rem;
+    background: none;
+    border: none;
+    color: var(--neutral-medium);
+    cursor: pointer;
+    border-radius: 0 30px 30px 0;
+    transition: color 0.2s ease;
+}
+
+#search-btn:hover {
+    color: var(--primary-main);
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        margin: 1rem 0 1.5rem;
+    }
+    
+    #search-input {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* No results message styling */
+#no-results-message {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--neutral-medium);
+    font-style: italic;
+    background-color: var(--neutral-light);
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+/* Refresh Button Styles */
+#refresh-btn {
+    margin-left: 10px;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--primary-main);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+#refresh-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+#refresh-btn .refresh-text {
+    font-size: 0.95rem;
+}
+
+#refresh-btn .fa-sync-alt {
+    transition: transform 0.5s ease;
+}
+
+#refresh-btn.refreshing .fa-sync-alt {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    #refresh-btn .refresh-text {
+        display: none;
+    }
+    
+    #refresh-btn {
+        padding: 0.8rem;
+        margin-left: 5px;
+    }
+}
+
+/* Publications Graph Styles - Enhanced */
+.publications-graph {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
+    min-height: 300px; /* Minimum height to prevent collapsing */
+}
+
+.publications-graph h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+#publicationsChart {
+    width: 100% !important;
+    height: 400px !important;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .publications-graph {
+        padding: 1rem;
+    }
+    
+    #publicationsChart {
+        height: 350px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .publications-graph {
+        padding: 1rem 0.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .publications-graph h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #publicationsChart {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #publicationsChart {
+        height: 250px !important;
+    }
+    
+    .publications-graph {
+        border-radius: 6px;
+        padding: 0.75rem 0.25rem;
+    }
+}

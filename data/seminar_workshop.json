@@ -1,0 +1,146 @@
+[
+    {
+        "title": "Guest Speaker on Machine Learning",
+        "details": "Organized by Dept. of CSE, ITS Engineering College, Greater Noida on February 22-26, 2021.",
+        "location": "Greater Noida",
+        "type": "seminar"
+    },
+    {
+        "title": "Coordinator - Applications of ML and DL",
+        "details": "Organized by Dept. of CSE, NIT Srinagar on October 26-30, 2020.",
+        "location": "NIT Srinagar",
+        "type": "seminar"
+    },
+    {
+        "title": "Jt. Organizing Secretary - International Conference on Digital Democracy - IT for Change",
+        "details": "Held at KIIT Bhubaneswar, January 16-18, 2020. Organized by the Computer Society of India.",
+        "location": "KIIT Bhubaneswar",
+        "type": "seminar"
+    },
+    {
+        "title": "Organizing Secretary - 8th International Symposium on Fusion of Science & Technology (ISFT-2020)",
+        "details": "Held at J.C. Bose University of Science & Technology, YMCA, Faridabad, India on January 6-10, 2020.",
+        "location": "YMCA, Faridabad",
+        "type": "seminar"
+    },
+    {
+        "title": "Coordinator - Exordium 2019",
+        "details": "Second National Level Workshop Cum Coding Festival by Semicolon and Dept. of CSE, NIT Srinagar, April 3-7, 2019.",
+        "location": "NIT Srinagar",
+        "type": "workshop"
+    },
+    {
+        "title": "Organized one-day coding competition Techno Crackers: Let's Codify",
+        "details": "Dept. of CSE, NIT Srinagar, May 13, 2017.",
+        "location": "NIT Srinagar",
+        "type": "workshop"
+    },
+    {
+        "title": "One Day Workshop on Cloud Computing and Big Data Analytics",
+        "details": "Held on May 19, 2015 at NIT Jalandhar.",
+        "location": "NIT Jalandhar, Punjab",
+        "type": "workshop"
+    },
+    {
+        "title": "STC on Recent Trends in Software Engineering and Knowledge Mining",
+        "details": "June 1-5, 2015 at NIT Jalandhar.",
+        "location": "NIT Jalandhar, Punjab",
+        "type": "workshop"
+    },
+    {
+        "title": "STC on Image and NLP",
+        "details": "May 30 to June 3, 2016 at NIT Jalandhar.",
+        "location": "NIT Jalandhar, Punjab",
+        "type": "workshop"
+    },
+    {
+        "title": "STC on Advances in CS & IT Trends",
+        "details": "January 2-6, 2017 at NIT Jalandhar.",
+        "location": "NIT Jalandhar, Punjab",
+        "type": "workshop"
+    },
+    {
+        "title": "TECHNO CRACKER: LET's CODIFY under CSI Banner",
+        "details": "May 13, 2017.",
+        "location": "NIT Jalandhar, Punjab",
+        "type": "workshop"
+    },
+    {
+        "title": "Research Promotional Workshop on Digital Geometry",
+        "details": "June 23-25, 2014.",
+        "location": "IIEST Shibpur",
+        "type": "workshop"
+    },
+    {
+        "title": "International Indo-US Workshop on Statistical Method on Bioinformatics",
+        "details": "December 12-14, 2013.",
+        "location": "IISc Bangalore",
+        "type": "workshop"
+    },
+    {
+        "title": "Course on Mathematical Morphology and Fractal Informatics",
+        "details": "June 29 - July 15, 2012.",
+        "location": "ISI Bangalore",
+        "type": "workshop"
+    },
+    {
+        "title": "International Workshop on Spatial Statistical Tools",
+        "details": "November 26-30, 2012.",
+        "location": "ISI Bangalore",
+        "type": "workshop"
+    },
+    {
+        "title": "Course on Spatial Informatics from Image",
+        "details": "November 30 - December 8, 2012.",
+        "location": "ISI Bangalore",
+        "type": "workshop"
+    },
+    {
+        "title": "CDSA-2014: 3rd International Symposium on Complex Dynamical Systems",
+        "details": "March 10-12, 2014.",
+        "location": "ISI Kolkata",
+        "type": "seminar"
+    },
+    {
+        "title": "6th Workshop on Nano-Electronics and Biochips",
+        "details": "December 22, 2012.",
+        "location": "ISI Kolkata",
+        "type": "workshop"
+    },
+    {
+        "title": "Workshop on Experiencing Data Mining using Statistica",
+        "details": "March 25-26, 2013.",
+        "location": "ISI Kolkata",
+        "type": "workshop"
+    },
+    {
+        "title": "National Conference on Bioinformatics & Comp. Biology",
+        "details": "March 14-15, 2014.",
+        "location": "SMIT, Sikkim",
+        "type": "seminar"
+    },
+    {
+        "title": "STC on Artificial Intelligence",
+        "details": "December 10-14, 2007.",
+        "location": "NITTR, Kolkata",
+        "type": "workshop"
+    },
+    {
+        "title": "Staff Development Program on Data Mining",
+        "details": "November 12-23, 2007.",
+        "location": "SONA College of Technology, Tamil Nadu",
+        "type": "workshop"
+    },
+    {
+        "title": "Academic Visit to MIT for Research Collaboration",
+        "details": "Research collaboration discussions with Computer Science Department, June 5-10, 2019.",
+        "location": "MIT, USA",
+        "type": "visit"
+    },
+    {
+        "title": "Academic Visit to Stanford University",
+        "details": "Attended seminars and workshops on AI research, September 15-20, 2018.",
+        "location": "Stanford, USA",
+        "type": "visit"
+    }
+]

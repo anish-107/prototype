@@ -5,6 +5,8 @@
 /* Container for the People section */
 .people-container {
     padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
     background-color: #f9f9f9;
 }
@@ -13,12 +15,95 @@
 .people-container h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Search and Filter Controls */
+.people-controls {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7f8c8d;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: #ecf0f1;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn:hover {
+    background: #d6eaf8;
+}
+
+.filter-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+/* No results message */
+#no-results-message {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+#no-results-message i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #bdc3c7;
 }
 
 /* Grid for arranging person cards */
 .people-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     justify-content: center;
 }
@@ -26,18 +111,20 @@
 /* Person card styling */
 .person-card {
     background: #fff;
-    border: 1px solid #ddd;
     border-radius: 15px;
-    width: 280px;
-    padding: 20px;
+    padding: 25px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Hover effect for person card */
 .person-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 /* Image styling in the person card */
@@ -50,34 +137,102 @@
     border: 3px solid #e0e0e0;
 }
 
-/* Person's name styling */
-.person-card h2 {
-    color: #b20000;
-    margin: 10px 0 5px;
-    font-size: 20px;
+/* Person header with name and reg code */
+.person-header {
+    margin-bottom: 10px;
 }
 
-/* Subtitle or position */
-.person-card h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
+.person-header h2 {
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+    font-size: 1.3rem;
 }
 
-/* Additional information styling */
-.person-card .phd {
-    font-size: 14px;
+.reg-code {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Education section */
+.person-education {
     margin: 10px 0;
-    color: #666;
+    font-size: 0.9rem;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
 }
 
-/* List styling inside person card */
-.person-card ul {
-    list-style-type: disc;
+/* Research interests */
+.person-research {
+    margin: 15px 0;
     text-align: left;
-    margin-top: 10px;
-    padding-left: 20px;
-    font-size: 14px;
+    width: 100%;
+}
+
+.person-research h4 {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.person-research ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
     color: #444;
+}
+
+.person-research li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.person-research li:last-child {
+    border-bottom: none;
+}
+
+/* Social links */
+.person-social {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+}
+
+.social-link {
+    color: #3498db;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #2980b9;
+}
+
+.social-link.disabled {
+    color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .people-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .people-controls {
+        flex-direction: column;
+    }
+    
+    .filter-buttons {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+    }
 }
