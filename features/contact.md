@@ -40,7 +40,6 @@ The key steps and considerations for this enhancement are:
 ### a) Input Validation and Sanitization
 
 - Rigorously validate the format of the email address to prevent malformed inputs.
-- Sanitize all input fields to protect against injection attacks and ensure that special characters do not break the email formatting.
 - Optionally, implement CAPTCHA or rate-limiting to prevent abuse of the form.
 
 ### b) Email Composition
@@ -57,19 +56,11 @@ The key steps and considerations for this enhancement are:
 
 ### d) Error Handling and Logging
 
-- Implement robust error handling to capture failures in sending emails.
-- Log errors for system administrators to review and diagnose potential issues.
+- Implement error handling to capture failures in sending emails.
 - Inform users if their message could not be sent due to technical problems.
 
 ### e) Security and Privacy
 
-- Avoid exposing sensitive credentials in the codebase; use environment variables or secure configuration management.
-- Comply with privacy policies and regulations when handling and transmitting user data.
-
-### f) Scalability and Maintenance
-
-- Design the email sending mechanism to handle multiple requests concurrently without performance degradation.
-- Plan for maintenance tasks such as updating mail server settings or changing recipient addresses.
+- Avoid exposing sensitive credentials in the codebase; use environment variables (.env) or secure configuration management.
 
 ---
-
