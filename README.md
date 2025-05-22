@@ -5,6 +5,8 @@
 ```
 prototype/
 ├── app.py              # Main application code
+├── data/               # Data being rendered on the page in JSON format
+├── utils/              # Utility functions and scripts
 ├── templates/          # HTML templates
 ├── static/             # CSS, JS, images
 ├── requirements.txt    # Python dependencies
@@ -65,6 +67,11 @@ python app.py
 ```
 
 Visit the app at: [http://localhost:5000](http://localhost:5000)
+
+## To make the website available to all the devices on the same network run :
+```bash
+flask run --host=0.0.0.0
+```
 
 ---
 
