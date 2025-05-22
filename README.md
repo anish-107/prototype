@@ -5,6 +5,7 @@
 ```
 prototype/
 ├── app.py              # Main application code
+├── features/           # Documentation for implementing the remaining features
 ├── data/               # Data being rendered on the page in JSON format
 ├── utils/              # Utility functions and scripts
 ├── templates/          # HTML templates
