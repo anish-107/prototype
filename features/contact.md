@@ -73,6 +73,3 @@ The key steps and considerations for this enhancement are:
 
 ---
 
-By following these guidelines, the contact form feature can be extended to provide reliable, secure, and user-friendly email notifications, leveraging the capabilities of the provided mail server infrastructure.
-
-This modular design allows future developers or system administrators to activate and configure the email sending feature without overhauling the existing codebase.
